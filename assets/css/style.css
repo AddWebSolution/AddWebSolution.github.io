@@ -1,0 +1,269 @@
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+   scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'DM Serif Display', serif;
+}
+a {
+  text-decoration: none;
+}
+
+#loader {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+}
+
+#loader:before,
+#loader:after {
+  content: "";
+  background-color: #161718;
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  height: 100%;
+  transition: all 0.3s ease 0s;
+  z-index: -1;
+}
+
+#loader:after {
+  left: auto;
+  right: 0;
+}
+
+#loader .line {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  width: 1px;
+  height: 280px;
+  transition: all 0.8s ease 0s;
+}
+
+#loader .line:before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 0%;
+  transform: translateY(-50%);
+  animation: lineanimation 1000ms ease-in-out 0s forwards;
+}
+
+#loader .line:after {
+  content: "";
+  position: absolute;
+  background-color: #999;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateY(-100%);
+  animation: linemotion 1200ms linear 0s infinite;
+  animation-delay: 2000ms;
+}
+
+#loader.loaded .line {
+  opacity: 0;
+  height: 100% !important;
+}
+
+#loader.loaded .line:after {
+  opacity: 0;
+}
+
+#loader.loaded:before,
+#loader.loaded:after {
+  animation: loaderfinish 300ms ease-in-out 500ms forwards;
+}
+
+@keyframes lineanimation {
+  0% {
+    height: 0%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes linemotion {
+  0% {
+    transform: translateY(200%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes loaderfinish {
+  0% {
+    width: 5 0%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+.header {
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 30px 0;
+  background-color: #000;
+}
+
+.header .logo {
+  transition: 0.3s;
+}
+
+.header .logo img {
+  max-height: 40px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 32px;
+  margin: 0;
+  font-weight: 400;
+  color: #fff;
+  font-family: 'DM Serif Display', serif;
+}
+
+.header .logo i {
+  font-size: 32px;
+  margin-right: 8px;
+  line-height: 0;
+}
+
+@media (max-width: 575px) {
+  .header .logo h1 {
+    font-size: 26px;
+  }
+
+  .header .logo i {
+    font-size: 24px;
+  }
+}
+
+.header .social-links a {
+  color: rgba(255, 255, 255, 0.4);
+  padding-left: 15px;
+  display: inline-block;
+  line-height: 0px;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.header .social-links a:hover {
+  color: #fff;
+}
+
+@media (max-width: 575px) {
+  .header .social-links a {
+    padding-left: 5px;
+  }
+}
+
+.header-banner {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  background: #000;
+  background-size: cover;
+  position: relative;
+}
+
+.header-banner h2 {
+  margin: 0 0 10px 0;
+  font-size: 34px;
+  line-height: 42px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: #fff;
+  font-family: 'DM Serif Display', serif;
+}
+
+.header-banner span {
+  position: relative;
+  z-index: 1;
+  padding: 0 5px;
+  font-family: 'DM Serif Display', serif;
+  color: #fff;
+  letter-spacing: 2px;
+  font-size: 48px;
+  line-height: 58px;
+}
+
+.header-banner  span:before {
+  content: "";
+  position: absolute;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #037EE6;
+  z-index: -1;
+}
+
+.header-banner p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.header-banner .btn-lets-connect {
+  font-weight: 400;
+  font-size: 14px;
+  display: inline-block;
+  padding: 12px 40px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.3s;
+  color: #fff;
+  border-radius: 10px 0;
+  background: #037EE6;
+}
+
+.header-banner .btn-lets-connect:hover {
+  background: #fff;
+  color: #037EE6;
+}
+
+@media (max-width: 768px) {
+  .header-banner h2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+  .header-banner span{
+    font-size: 34px;
+    line-height: 43px;
+  }
+}
+
+.footer p {
+  color: #fff;
+}
+.footer p a {
+  color: #037EE6;
+}
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer .bi-suit-heart-fill {
+  color: #FF0000;
+}
